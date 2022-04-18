@@ -1,0 +1,81 @@
+﻿@page "/admin_dashboard_page"
+<style>
+    body {
+        background: radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em, radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em, radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em, radial-gradient(#15ffa5, #00ced1);
+        background-color: mediumspringgreen;
+        background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+        background-repeat: repeat;
+    }
+</style>
+
+
+<MudGrid>
+    <MudItem xs="12" sm="12" md="6" lg="6" xl="6">
+        <MudText Class="m-4" Typo="Typo.h3"> Add Post Page</MudText>
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+            <MudText Align="Align.Left">
+                you  can add your weblog posts
+                <br />
+                directly from this page
+            </MudText>
+        </MudAlert>
+        <MudButton Class="m-4" Link="/admin_handler_add_blog_post" Variant="Variant.Filled" Color="Color.Primary">
+            Go To Add Post Page
+        </MudButton>
+    </MudItem>
+    <MudItem xs="12" sm="12" md="6" lg="6" xl="6">
+        <MudText Typo="Typo.h3" Class="m-4">All Posts Page</MudText>
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+            <MudText Align="Align.Left">
+                you  can edit , delete and add your weblog posts
+                <br />
+                from this page
+            </MudText>
+        </MudAlert>
+        <MudButton Class="m-4" Link="/admin_handler_posts_page" Variant="Variant.Filled" Color="Color.Primary">
+            Go To Posts Page
+        </MudButton>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="6" lg="6" xl="6">
+        <MudText Class="m-4" Typo="Typo.h3"> Add Product Page</MudText>
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+            <MudText Align="Align.Left">
+                you  can add your  products
+                <br />
+                directly from this page
+            </MudText>
+        </MudAlert>
+        <MudButton Class="m-4" Link="/admin_handler_add_product" Variant="Variant.Filled" Color="Color.Primary">
+            Go To Add Product Page
+        </MudButton>
+    </MudItem>
+    <MudItem xs="12" sm="12" md="6" lg="6" xl="6">
+        <MudText Typo="Typo.h3" Class="m-4">All Products Page</MudText>
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+            <MudText Align="Align.Left">
+                you  can edit , delete and add your products
+                <br />
+                from this page
+            </MudText>
+        </MudAlert>
+        <MudButton Class="m-4" Link="/admin_handler_products_page" Variant="Variant.Filled" Color="Color.Primary">
+            Go To Products Page
+        </MudButton>
+    </MudItem>
+
+    <MudItem xs="12" sm="12" md="6" lg="6" xl="6">
+        <MudText Typo="Typo.h3" Class="m-4">WebSite Gallery</MudText>
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+            <MudText Align="Align.Left">
+                you  can edit , delete and add your images
+                <br />
+                from this page
+            </MudText>
+        </MudAlert>
+        <MudButton Class="m-4" Link="/admin_handler_image_gallery" Variant="Variant.Filled" Color="Color.Primary">
+            Go To Gallery Page
+        </MudButton>
+    </MudItem>
+</MudGrid>
+

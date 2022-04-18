@@ -1,0 +1,26 @@
+﻿@if (BlogPostDtos.Count > 0)
+{
+    <MudGrid>
+        @foreach (var post in BlogPostDtos)
+        {
+            <MudItem xs="11" sm="11" md="11" lg="11" xl="11" xxl="11" Class="IBGCBlack IBorder1 my-1 mr-1">
+                <div class="row">
+                    <div class="col-6">
+                        <MudText Typo="Typo.h5" Style="font-size: 3vw;">@post.PostName</MudText>
+                        <MudText Typo="Typo.body2" Style="font-size: 2vw;">نویسنده : @post.PostAuthorName</MudText>
+                        <MudText Typo="Typo.body2" Style="font-size: 2vw;">@post.PostText</MudText>
+                    </div>
+                    <div class="col-6">
+                        <img src="@post.PostImageAddress" class="img-fluid" alt="@post.PostImageAlt" />
+                    </div>
+                </div>
+                
+                <MudButton Variant="Variant.Filled" Color="@Color.Success" OnClick="(()=> GetPostDetail(post.Id))">Read More</MudButton>
+            </MudItem>
+        }
+    </MudGrid>
+}
+else
+{
+    <MudProgressLinear Color="Color.Primary" Striped="true" Size="Size.Large" Value="90" Class="m-7" />
+}

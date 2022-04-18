@@ -1,0 +1,50 @@
+﻿@page "/admin_handler_add_product"
+
+<MudPaper Class="pa-8 ma-2" Elevation="3">
+    <div class=row>
+        <div class="col">
+            <section class="IW7 Imarginauto">
+                <EditForm Model="ProductDto" OnValidSubmit="OnValidSubmit">
+                    <DataAnnotationsValidator />
+                    <MudCard>
+                        <MudCardContent>
+                            <MudTextField Lines="1" Class="mb-5" Label="نام محصول" @bind-Value="ProductDto.Name" For="@(() => ProductDto.Name)" />
+                            <MudTextField Lines="1" Class="mb-5" Label="توضیحات" @bind-Value="ProductDto.Description" For="@(() => ProductDto.Description)" />
+                            <MudNumericField Lines="5" Class="mb-5" Label="قیمت محصول" @bind-Value="ProductDto.Price" For="@(() => ProductDto.Price)" />
+                            <MudNumericField Lines="5" Class="mb-5" Label="موجودی انبار" @bind-Value="ProductDto.CountInStore" For="@(() => ProductDto.CountInStore)" />
+                            <div class="row">
+                                <MudText Typo="Typo.h6" Align="Align.Center">انتخاب عکس از گالری</MudText>
+                            </div>
+                            <MudSelect @bind-Value="ProductDto.ProductImageId" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" Adornment="Adornment.Start" Text="not selected" Class="mb-5" T="int">
+                                @{
+                                    foreach (var imageDto in ImageDtoList)
+                                    {
+                                        <MudSelectItem T="int" Value="@imageDto.Id">
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    @imageDto.Id
+                                                </div>
+                                                <div class="col-7">
+                                                    <MudText Color="Color.Success">
+                                                        @imageDto.Path
+                                                    </MudText>
+                                                </div>
+                                                <div class="col-4">
+                                                    <img src="@imageDto.Path" class="IW8 IH7" />
+                                                </div>
+                                            </div>
+                                        </MudSelectItem>
+                                    }
+                                }
+                            </MudSelect>
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                       Class="m-4">ایجاد محصول</MudButton>
+                        </MudCardActions>
+                    </MudCard>
+                </EditForm>
+            </section>
+        </div>
+    </div>
+</MudPaper>

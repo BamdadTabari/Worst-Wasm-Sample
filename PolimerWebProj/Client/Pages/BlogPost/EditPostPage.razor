@@ -1,0 +1,49 @@
+﻿@page "/admin_handler_edit_post_page/{postId:int}"
+
+<MudPaper Class="pa-8 ma-2" Elevation="3">
+    <div class=row>
+        <div class="col">
+            <section class="IW7 Imarginauto">
+                <EditForm Model="BlogPostDto" OnValidSubmit="OnValidSubmit">
+                    <DataAnnotationsValidator />
+                    <MudCard>
+                        <MudCardContent>
+                            <MudTextField Lines="5" Class="mb-5" Label="متن پست" @bind-Value="BlogPostDto.PostText" For="@(() => BlogPostDto.PostText)" />
+                            <MudTextField Lines="5" Class="mb-5" Label="نام پست" @bind-Value="BlogPostDto.PostName" For="@(() => BlogPostDto.PostName)" />
+                            <MudTextField Lines="5" Class="mb-5" Label="نام نویسنده" @bind-Value="BlogPostDto.PostAuthorName" For="@(() => BlogPostDto.PostAuthorName)" />
+                            <div class="row">
+                                <MudText Typo="Typo.h6">انتخاب عکس از گالری</MudText>
+                            </div>
+                            <MudSelect @bind-Value="BlogPostDto.PostImageId" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" Adornment="Adornment.Start" Text="not selected" Class="mb-5" T="int">
+                                @{
+                                    foreach (var imageDto in ImageDtoList)
+                                    {
+                                        <MudSelectItem T="int" Value="@imageDto.Id">
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    @imageDto.Id
+                                                </div>
+                                                <div class="col-7">
+                                                    <MudText Color="Color.Success">
+                                                        @imageDto.Path
+                                                    </MudText>
+                                                </div>
+                                                <div class="col-4">
+                                                    <img src="@imageDto.Path" class="IW8 IH7" />
+                                                </div>
+                                            </div>
+                                        </MudSelectItem>
+                                    }
+                                }
+                            </MudSelect>
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                       Class="m-4">ویرایش پست</MudButton>
+                        </MudCardActions>
+                    </MudCard>
+                </EditForm>
+            </section>
+        </div>
+    </div>
+</MudPaper>

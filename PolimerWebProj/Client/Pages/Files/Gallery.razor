@@ -1,0 +1,27 @@
+﻿@page "/admin_handler_image_gallery"
+
+<AuthorizeView Roles="Adminstrator">
+    <Authorized>
+        <div class="IBGFadedSun IBorder3 m-1  ">
+            <ImageUpload OnChange="OnChange" />
+        </div>
+
+        <div class="m-1">
+            <MudGrid Class="IBorder3 m-2">
+                @{
+                    foreach (var image in ImageDtoList)
+                    {
+                        <MudItem xxl="4" xl="4" lg="6" sm="12" xs="12">
+                            <img alt="@image.Alt" src="@image.Path" id="@image.Id" class="IBorder1" />
+                        </MudItem>
+                    }
+                }
+            </MudGrid>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <MudAlert Severity="Severity.Error">
+            <MudText Typo="Typo.h1"> You Have Not Permission </MudText>
+        </MudAlert>
+    </NotAuthorized>
+</AuthorizeView>

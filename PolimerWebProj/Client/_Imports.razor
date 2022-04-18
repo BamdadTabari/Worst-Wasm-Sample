@@ -8,3 +8,18 @@
 @using Microsoft.JSInterop
 @using PolimerWebProj.Client
 @using PolimerWebProj.Client.Shared
+@using PolimerWebProj.Client.Shared.Helpers
+@using PolimerWebProj.Client.Shared.Layout
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Microsoft.AspNetCore.Components.Authorization
+@using PolimerWebProj.Shared.BasicServices
+@using MudBlazor
+@using Blazored.SessionStorage
+
+@inject NavigationManager NavigationManager;
+@inject IHttpRequestHandlerService _httpRequestHandler;
+@inject IJSRuntime _JsRuntime;
+@inject ISnackbar _snackbar;
+@inject IDialogService _dialogService;
+@inject IAuthenticationService _authenticationService;
+@inject ISessionStorageService _sessionStorageService;

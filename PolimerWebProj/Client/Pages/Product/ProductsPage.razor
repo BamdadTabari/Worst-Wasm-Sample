@@ -1,0 +1,65 @@
+﻿@page "/admin_handler_products_page"
+
+@using PolimerWebProj.Shared.Dto.Produt;
+
+<AuthorizeView Roles="Adminstrator">
+    <Authorized>
+        <MudPaper>
+            <div class="row">
+                <div class="col">
+                    <MudTable ServerData="@(new Func<TableState, Task<TableData<ProductDto>>>(GetServerData))"
+                              Hover="true" Breakpoint="Breakpoint.Sm" RightAlignSmall="true" @ref="_table" Loading="true" LoadingProgressColor="@Color.Secondary">
+                        <ToolBarContent>
+                            <MudText Typo="Typo.h6">
+                                <div class="IFArchitectsDaughter-Regular">
+                                    Products Table
+                                </div>
+                            </MudText>
+                            <MudSpacer />
+                            <MudTextField OnDebounceIntervalElapsed="OnSearch" Placeholder="Search by name" Adornment="Adornment.Start"
+                                          AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0" T="string" DebounceInterval="500"></MudTextField>
+                        </ToolBarContent>
+                        <HeaderContent>
+                            <MudTh>Name</MudTh>
+                            <MudTh>Price</MudTh>
+                            <MudTh>Description</MudTh>
+                            <MudTh>Image</MudTh>
+                            <MudTh>Admin action</MudTh>
+                        </HeaderContent>
+                        <RowTemplate Context="rowContext">
+                            <MudTd DataLabel="Post Name">@rowContext.Name</MudTd>
+                            <MudTd DataLabel="Author">@rowContext.Price</MudTd>
+                            <MudTd DataLabel="Summery">
+                                @{
+                                    if (rowContext.Description.Length >= 30)
+                                    {
+                                        <MudText>@rowContext.Description[0..26] ...</MudText>
+                                    }
+                                    else
+                                    {
+                                        <MudText>@rowContext.Description</MudText>
+                                    }
+                                }
+                            </MudTd>
+                            <MudTd DataLabel="Image">
+                                <img src="@rowContext.ProductImageAddress" />
+                            </MudTd>
+                            <MudTd DataLabel="admin Actions">
+                                <MudButton Variant="Variant.Filled" Color="Color.Warning" OnClick="(()=>EditProduct(rowContext.Id))">Edit</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="(()=>DeleteProduct(rowContext.Id))">Delete</MudButton>
+                            </MudTd>
+                        </RowTemplate>
+                        <PagerContent>
+                            <MudTablePager PageSizeOptions="@_pageSizeOption" RowsPerPageString="Products per page" />
+                        </PagerContent>
+                    </MudTable>
+                </div>
+            </div>
+        </MudPaper>
+    </Authorized>
+    <NotAuthorized>
+        <MudAlert Severity="Severity.Error">
+            <MudText Typo="Typo.h1"> You Have Not Permission </MudText>
+        </MudAlert>
+    </NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,14 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <div class="row">
+            <MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mx-2">@context.User.Identity.Name</MudText>
+            <a href="Logout"><MudButton Class="mx-2" Variant="Variant.Outlined" Color="Color.Error">Logout</MudButton></a>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="row">
+            <a class="col-5 mx-2" href="Registration"><MudButton Variant="Variant.Outlined" Color="Color.Success">SignUp</MudButton></a>
+            <a class="col-5 mx-2" href="Login"><MudButton Variant="Variant.Outlined" Color="Color.Secondary">Login</MudButton></a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,22 @@
+﻿@page "/registration"
+@layout LoginLayout
+<MudText Typo="Typo.h4" GutterBottom="true">Sign Up</MudText>
+<MudText>Already have an account? <MudLink Href="/login">Sign In</MudLink></MudText>
+
+<EditForm Model="_userForRegistration" OnValidSubmit="Register">
+    <DataAnnotationsValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudTextField T="string" Label="User Name" Variant="Variant.Outlined" Class="my-4" @bind-Value="_userForRegistration.UserName" For="@(() => _userForRegistration.UserName)" />
+            <MudTextField T="string" Label="E-mail" Variant="Variant.Outlined" @bind-Value="_userForRegistration.Email" For="@(() => _userForRegistration.Email)" />
+            <MudTextField T="string" Label="Phone Number" Variant="Variant.Outlined" @bind-Value="_userForRegistration.PhoneNumber" For="@(() => _userForRegistration.PhoneNumber)" />
+            <MudTextField @bind-Value="_userForRegistration.Password" For="@(() => _userForRegistration.Password)" Label="Password" Variant="Variant.Outlined" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="TogglePasswordVisibility" Class="mt-4" />
+            <MudTextField @bind-Value="_userForRegistration.ConfirmPassword" For="@(() => _userForRegistration.ConfirmPassword)" Label="Password" Variant="Variant.Outlined" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="TogglePasswordVisibility" Class="mt-4" />
+            <MudCheckBox @bind-Checked="@AgreeToTerms" Label="I agree to the terms and privacy" Color="Color.Primary" Class="ml-n1 my-3"></MudCheckBox>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Disabled="@(!AgreeToTerms)" ButtonType="ButtonType.Submit" Size="Size.Large" FullWidth="true" Variant="Variant.Filled" Color="Color.Primary"
+                       Class="ml-auto">Register</MudButton>
+        </MudCardActions>
+    </MudCard>
+</EditForm>

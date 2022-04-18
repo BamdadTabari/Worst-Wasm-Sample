@@ -1,0 +1,168 @@
+﻿<div class="m-3 p-3"></div>
+<MudContainer Class="mt-5" MaxWidth="MaxWidth.ExtraExtraLarge">
+    <MudGrid Class="mud-height-full">
+        <MudItem sm="12" xs="12" md="6" lg="6" xl="6" xxl="6">
+            <MudCard>
+                <MudCardHeader>
+                    <MudText Typo="Typo.h4" Align="Align.Center">
+                        <div >
+                            معرفی نامه
+                        </div>
+                    </MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="true" ShowBullets="true" AutoCycle="true" TData="object">
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+                            <div class="d-flex" style="height:100%; text-align:center">
+                                <img src="/Images/Faragostar_About_US/FaragostarPolimer.jpg" class="img-fluid"  alt="Faragostar Polimer Products "/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_About_US/Faragostar_About_Us.jpeg" class="img-fluid" alt="خرید تفلون نسوز"/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Warning">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_About_US/Polimer_Faragostar.jpeg"  class="img-fluid" />
+                            </div>
+                        </MudCarouselItem>
+                    </MudCarousel>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton @onclick="OpenAboutUsDialog" Variant="Variant.Filled" Color="Color.Info" >
+                        <MudText Typo="Typo.h6" Align="Align.Start">
+                            <div  >
+                                نمایش
+                            </div>
+                        </MudText>
+                    </MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem sm="12" xs="12" md="6" lg="6" xl="6" xxl="6">
+            <MudCard>
+                <MudCardHeader>
+                    <MudText Typo="Typo.h4" Align="Align.Center">
+                        <div  >
+                            وبلاگ
+                        </div>
+                    </MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="true" ShowBullets="true" AutoCycle="true" TData="object">
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Weblog/Faragostar.jpg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Weblog/Faragostar_Polimer.jpg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Warning">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Weblog/Polimer.jpeg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                    </MudCarousel>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Color="Color.Dark">
+                        <MudText Typo="Typo.h6" Align="Align.End">
+                            <MudLink Href="/faragostar_weblog">
+                                <div  >
+                                    نمایش
+                                </div>
+                            </MudLink>
+                        </MudText>
+                    </MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem sm="12" xs="12" md="6" lg="6" xl="6" xxl="6">
+            <MudCard>
+                <MudCardHeader>
+                    <MudText Typo="Typo.h4" Align="Align.Center">
+                        <div  >
+                            ارتباط با ما
+                        </div>
+                    </MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="true" ShowBullets="true" AutoCycle="true" TData="object">
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Social_Media/Faragostar_Instagram.jpg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Social_Media/Faragostar_Linkedin.png" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Warning">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Social_Media/Faragostar_Telegram.jpg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Error">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Social_Media/Faragostar_Twiiter.jpg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                    </MudCarousel>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton @onclick="OpenWeblogDialog" Variant="Variant.Filled" Color="Color.Error">
+                        <MudText Typo="Typo.h6" Align="Align.End">
+                            <div  >
+                                نمایش
+                            </div>
+                        </MudText>
+                    </MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem sm="12" xs="12" md="6" lg="6" xl="6" xxl="6">
+            <MudCard>
+                <MudCardHeader>
+                    <MudText Typo="Typo.h4" Align="Align.Center">
+                        محصولات ما
+                    </MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="true" ShowBullets="true" AutoCycle="true" TData="object">
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Store/Faragostar_Products.jpg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Store/Faragostar_Store.jpg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Warning">
+                            <div class="d-flex" style="height:100%">
+                                <img src="/Images/Faragostar_Store/Faragostar_Store_Products.jpg" class="img-fluid"/>
+                            </div>
+                        </MudCarouselItem>
+                    </MudCarousel>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Color="Color.Tertiary">
+                        <MudText Typo="Typo.h6" Align="Align.End">
+                            <MudLink Href="/faragostar_store">
+                                <div  >
+                                    نمایش
+                                </div>
+                            </MudLink>
+                        </MudText>
+                    </MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudContainer>

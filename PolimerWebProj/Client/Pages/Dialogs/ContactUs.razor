@@ -1,0 +1,50 @@
+﻿<MudDialog DisableSidePadding="true" Style=" max-width: 600px">
+    <DialogContent>
+        <MudContainer Style="max-height: 300px; overflow-y: scroll;">
+            <MudText Typo="Typo.h6" Color="@Color.Success" Align="Align.Right">
+                شما می توانید جهت تماس با مجموعه ما از راه های ارتباطیه زیر استفاده کنید
+            </MudText>
+            <div class="row d-flex IW10 mt-1">
+                <div class="col-4">
+                    <MudIcon Icon="@Icons.Custom.Brands.Instagram" Size="Size.Large" Color="Color.Error" />
+                </div>
+                <div class="col-7">
+                    <a href="https://www.instagram.com/Faragostar_polymer/">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">صفحه ی اینستاگرام ما</MudText>
+                    </a>
+                </div>
+            </div>
+            <div class="row d-flex IW10 mt-1">
+                <div class="col-4">
+                    <MudIcon Icon="@Icons.Custom.Brands.Twitter" Size="Size.Large" Color="Color.Info"></MudIcon>
+                </div>
+                <div class="col-7">
+                    <a href="https://twitter.com/Faragostar_plmr/">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">صفحه ی توییتر ما</MudText>
+                    </a>
+                </div>
+            </div>
+            <div class="row d-flex IW10 mt-1">
+                <div class="col-4">
+                    <MudIcon Icon="@Icons.Custom.Brands.Telegram" Size="Size.Large" Color="Color.Primary"></MudIcon>
+                </div>
+                <div class="col-7">
+                    <a href="https://t.me/faragostar_polymer/">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">ارتباط مستقیم در تلگرام</MudText>
+                    </a>
+                </div>
+            </div>
+            <div class="row d-flex IW10 mt-1">
+                <div class="col-4">
+                    <MudIcon Icon="@Icons.Filled.Phone" Size="Size.Large" Color="Color.Primary"></MudIcon>
+                </div>
+                <div class="col-7">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">0912 925 0324</MudText>
+                </div>
+            </div>
+        </MudContainer>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>

@@ -1,0 +1,23 @@
+﻿@page "/login"
+@layout LoginLayout
+
+<MudText Typo="Typo.h4" GutterBottom="true">Sign In</MudText>
+
+<MudText>Don't have an account? <MudLink Href="/registration">Sign Up</MudLink></MudText>
+<EditForm Model="loginModelDto" OnValidSubmit="ExecuteLogin">
+    <DataAnnotationsValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudTextField T="string" Label="E-mail" Variant="Variant.Outlined" Class="my-6" @bind-Value="loginModelDto.Email" For="@(() => loginModelDto.Email)" />
+            <MudTextField Label="Password" AdornmentIcon="@PasswordInputIcon" Variant="Variant.Outlined" Adornment="Adornment.End" OnAdornmentClick="TogglePasswordVisibility" InputType="@PasswordInput" @bind-Value="loginModelDto.Password" For="@(() => loginModelDto.Password)" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit" Size="Size.Large" FullWidth="true">Sign In</MudButton>
+
+        </MudCardActions>
+    </MudCard>
+</EditForm>
+<div Class="d-flex justify-space-between align-center">
+    <MudCheckBox T="bool" Label="Remember me?" Color="Color.Primary" Class="ml-n1 my-3"></MudCheckBox>
+    <MudLink Href="/pages/authentication/forgot-password">Forgot pwd?</MudLink>
+</div>
