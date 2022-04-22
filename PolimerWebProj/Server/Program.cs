@@ -1,11 +1,17 @@
+using Blazored.LocalStorage;
 using Blazored.SessionStorage;
 using KernelLogic.DataBaseObjects;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
+using MudBlazor;
+using MudBlazor.Services;
 using PolimerWebProj.Shared.BasicObjects.JWT;
 using PolimerWebProj.Shared.BasicServices;
 using PolimerWebProj.Shared.Repository.BlogPost;
@@ -30,12 +36,13 @@ builder.Services.AddDbContext<IDentityContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddMvc();
+builder.Services.AddRazorPages();
 builder.Services.AddScoped<IBlogPostRepo, BlogPostRepo>();
 builder.Services.AddScoped<IProductRepo, ProductRepo>();
 builder.Services.AddScoped<IImageRepo, ImageRepo>();
 builder.Services.AddBlazoredSessionStorage();
 builder.Services.AddScoped<ITokenExtension, TokenExtension>();
-builder.Services.AddMvc();
+
 builder.Services.AddCors(policy =>
 {
     policy.AddPolicy("IllegibleCors", opt => opt
@@ -47,7 +54,27 @@ builder.Services.AddCors(policy =>
 builder.Services.AddBlazoredSessionStorage();
 builder.Services.AddScoped<ITokenExtension, TokenExtension>();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IDentityContext>().AddDefaultTokenProviders();
-
+builder.Services.AddSingleton<HttpClient>(sp =>
+{
+    // Get the address that the app is currently running at
+    var server = sp.GetRequiredService<IServer>();
+    var addressFeature = server.Features.Get<IServerAddressesFeature>();
+    string baseAddress = addressFeature.Addresses.First();
+    return new HttpClient { BaseAddress = new Uri(baseAddress) };
+});
+builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddBlazoredSessionStorage();
+builder.Services.AddScoped<AuthenticationStateProvider, ApiAuthenticationStateProvider>();
+builder.Services.AddScoped<IHttpRequestHandlerService, HttpRequestHandlerService>();
+builder.Services.AddMudServices(config =>
+{
+    config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.TopCenter;
+    config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
+    config.SnackbarConfiguration.ShowCloseIcon = true;
+    config.SnackbarConfiguration.MaxDisplayedSnackbars = 2;
+});
 #region IDentity with jwt
 
 var jwtSetting = new JwtSetting();
@@ -100,6 +127,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllers();
-app.MapFallbackToFile("index.html");
-
+//app.MapFallbackToFile("index.html");
+app.MapFallbackToPage("/_Host");
 app.Run();

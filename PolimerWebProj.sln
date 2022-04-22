@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32408.312
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolimerWebProj.Server", "PolimerWebProj\Server\PolimerWebProj.Server.csproj", "{6C56C524-7335-4DD9-A6CB-F016F778EAFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolimerWebProj.Server", "PolimerWebProj\Server\PolimerWebProj.Server.csproj", "{6C56C524-7335-4DD9-A6CB-F016F778EAFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolimerWebProj.Client", "PolimerWebProj\Client\PolimerWebProj.Client.csproj", "{F4613281-5020-4442-9CEE-FCF755020E2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolimerWebProj.Client", "PolimerWebProj\Client\PolimerWebProj.Client.csproj", "{F4613281-5020-4442-9CEE-FCF755020E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolimerWebProj.Shared", "PolimerWebProj\Shared\PolimerWebProj.Shared.csproj", "{91AA88DA-0676-4C15-B37B-204DE513825A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolimerWebProj.Shared", "PolimerWebProj\Shared\PolimerWebProj.Shared.csproj", "{91AA88DA-0676-4C15-B37B-204DE513825A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KernelLogic", "KernelLogic\KernelLogic.csproj", "{FBDCA550-6FF7-43F7-952D-DBCD5312BFA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KernelLogic", "KernelLogic\KernelLogic.csproj", "{FBDCA550-6FF7-43F7-952D-DBCD5312BFA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
